@@ -2,17 +2,19 @@ import React from "react";
 import user from "../images/user.png";
 
 const ContactCard = (props) => {
-  const { id, name, email } = props.contact;
+  const { id, name, lastname, email, number} = props.contact;
   return (
-    <div className="item">
-      <img className="ui avatar image" src={user} alt="user" />
-      <div className="content">
-        <div className="header">{name}</div>
-        <div>{email}</div>
+    <div className="flex w-full items-center mb-3">
+      <img className="ui tiny  image" src={user} alt="user" />
+      <div className="content ml-4 mr-auto">
+        <div className="header text-2xl font-bold capitalize">{name} {lastname}</div>
+        <div><a className="" href={"mailto:"+email }>{email}</a></div>
+        <div><a className="" href={"tel:"+ number}>{number}</a></div>
+
       </div>
       <i
-        className="trash alternate outline icon"
-        style={{ color: "red", marginTop: "7px" }}
+        className="trash alternate  icon"
+        style={{ color: "red" }}
         onClick={() => props.clickHander(id)}
       ></i>
     </div>
